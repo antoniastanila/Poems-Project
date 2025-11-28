@@ -1,5 +1,4 @@
 /* src/App.css */
-
 :root {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background-color: #0f172a;
@@ -10,15 +9,17 @@ body {
   margin: 0;
 }
 
+/* containerul mare care ocupă toată lățimea */
 .app {
   min-height: 100vh;
 }
 
-/* nou: containerul central al paginii */
+/* 🔹 acesta este „div-ul din mijloc” cu tot conținutul */
 .app-inner {
   max-width: 1000px;
+  /* cât de lat poate fi conținutul */
   margin: 0 auto;
-  /* 🔹 pune TOT conținutul pe mijloc */
+  /* centrează pe orizontală */
   padding: 0 1.5rem 2rem;
 }
 
@@ -38,10 +39,12 @@ body {
   color: #9ca3af;
 }
 
+/* main nu mai are max-width/margin, doar un mic spacing sus */
 main {
   margin-top: 0.5rem;
 }
 
+/* ...restul CSS-ului tău rămâne la fel */
 .year-section {
   margin-top: 2rem;
 }
@@ -56,11 +59,9 @@ main {
 .cards-grid {
   display: flex;
   flex-wrap: wrap;
-  /* cardurile trec pe rândul următor */
   gap: 1.5rem;
-  /* spațiu între carduri */
   justify-content: flex-start;
-  /* 🔹 rândurile NU sunt centrate, doar containerul */
+  /* rândurile nu sunt centrate, doar containerul */
 }
 
 .poem-card {
@@ -75,10 +76,12 @@ main {
   color: inherit;
 
   width: 280px;
-  /* aceeași lățime pentru toate cardurile */
   flex: 0 0 280px;
-  /* nu se întind peste lățimea asta */
 }
+
+/* restul (hover, modal etc.) rămân identice */
+
+
 
 .poem-card:hover {
   transform: translateY(-2px);

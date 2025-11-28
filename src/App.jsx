@@ -1,14 +1,24 @@
 // src/App.jsx
-import { useState } from "react";
 import "./App.css";
-import { poemsByYear } from "./poems";
+import poems from "./poems"; // poemsByYear era de fapt o listă de poezii
+import { useState } from "react";
+
+// Grupăm poeziile pe ani într-un obiect: { 2025: [...], 2024: [...] }
+const poemsByYear = poems.reduce((acc, poem) => {
+  if (!acc[poem.year]) {
+    acc[poem.year] = [];
+  }
+  acc[poem.year].push(poem);
+  return acc;
+}, {});
+
+// Lista de ani, ordonați descrescător
+const years = Object.keys(poemsByYear)
+  .map(Number)
+  .sort((a, b) => b - a);
 
 function App() {
   const [selectedPoem, setSelectedPoem] = useState(null);
-
-  const years = Object.keys(poemsByYear)
-    .map(Number)
-    .sort((a, b) => b - a);
 
   return (
     <div className="app">
@@ -25,7 +35,7 @@ function App() {
               <div className="cards-grid">
                 {poemsByYear[year].map((poem) => (
                   <button
-                    key={poem.title + poem.date}
+                    key={poem.id}
                     className="poem-card"
                     onClick={() => setSelectedPoem(poem)}
                   >
@@ -56,7 +66,8 @@ function App() {
             </button>
             <h2>{selectedPoem.title}</h2>
             <p className="modal-date">{selectedPoem.date}</p>
-            <pre className="poem-text">{selectedPoem.text}</pre>
+            {/* aici trebuie folosit `content`, nu `text` */}
+            <pre className="poem-text">{selectedPoem.content}</pre>
           </div>
         </div>
       )}

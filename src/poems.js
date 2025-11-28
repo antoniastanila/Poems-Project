@@ -1,4 +1,4 @@
-export const poems = [
+export const poemsByYear = [
     {
         id: "mix-of-emotions-2025-09-27",
         title: "Mix of emotions in my heart",
@@ -1056,3 +1056,4 @@ Ce avem noi nu va mai fi
 Nu se va mai pomeni…`
     }
 ];
+export default poemsByYear;
