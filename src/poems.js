@@ -601,7 +601,7 @@ Coșmarul ce-l știu deja pe-ndelete
 Când nu va mai trebui să mă sufoce
 Nodul din gât, ce se umflă atroce
 Când nu va mai trebui să mă ascund
-Și inimii ce iubesc să tot străpung
+Și inimi ce iubesc să tot străpung
 
 Când în minte va fi doar liniște
 Ochii-mi vor fi spre cer, pe-o pajiște
