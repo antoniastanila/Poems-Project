@@ -14,8 +14,17 @@ body {
   min-height: 100vh;
 }
 
+/* nou: containerul central al paginii */
+.app-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  /* 🔹 pune TOT conținutul pe mijloc */
+  padding: 0 1.5rem 2rem;
+}
+
 .app-header {
-  padding: 2rem 1.5rem 1rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
   text-align: center;
 }
 
@@ -30,9 +39,7 @@ body {
 }
 
 main {
-  padding: 0 1.5rem 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
+  margin-top: 0.5rem;
 }
 
 .year-section {
@@ -49,8 +56,11 @@ main {
 .cards-grid {
   display: flex;
   flex-wrap: wrap;
-  /* aici se întâmplă “trecerea pe rândul următor” */
-  gap: 1rem;
+  /* cardurile trec pe rândul următor */
+  gap: 1.5rem;
+  /* spațiu între carduri */
+  justify-content: flex-start;
+  /* 🔹 rândurile NU sunt centrate, doar containerul */
 }
 
 .poem-card {
@@ -58,13 +68,16 @@ main {
   border-radius: 0.75rem;
   border: 1px solid #1f2937;
   padding: 1rem 1.2rem;
-  min-width: 200px;
-  max-width: 260px;
   text-align: left;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease,
     border-color 0.15s ease;
   color: inherit;
+
+  width: 280px;
+  /* aceeași lățime pentru toate cardurile */
+  flex: 0 0 280px;
+  /* nu se întind peste lățimea asta */
 }
 
 .poem-card:hover {
@@ -133,7 +146,6 @@ main {
 
 .poem-text {
   white-space: pre-wrap;
-  /* păstrează rândurile cum sunt în text */
   font-family: inherit;
   line-height: 1.6;
 }
