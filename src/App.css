@@ -1,4 +1,3 @@
-/* src/App.css */
 :root {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background-color: #0f172a;
@@ -9,20 +8,23 @@ body {
   margin: 0;
 }
 
-/* containerul mare care ocupă toată lățimea */
 .app {
   min-height: 100vh;
+  /* nu mai trebuie flex aici */
+  display: flex;
+  justify-content: center
 }
 
-/* 🔹 acesta este „div-ul din mijloc” cu tot conținutul */
+/* div-ul din mijloc */
 .app-inner {
-  max-width: 1000px;
-  /* cât de lat poate fi conținutul */
+  max-width: 1400px;
+  /* lățimea maximă a coloanei */
   margin: 0 auto;
-  /* centrează pe orizontală */
-  padding: 0 1.5rem 2rem;
+  /* 🔹 ASTA îl pune fix pe centru orizontal */
+  padding: 0 2rem 2rem;
 }
 
+/* restul CSS-ului tău rămâne la fel */
 .app-header {
   padding-top: 2rem;
   padding-bottom: 1rem;
@@ -32,6 +34,7 @@ body {
 .app-header h1 {
   margin: 0 0 0.5rem;
   font-size: 2rem;
+  color: #a286ba
 }
 
 .app-header p {
@@ -39,21 +42,21 @@ body {
   color: #9ca3af;
 }
 
-/* main nu mai are max-width/margin, doar un mic spacing sus */
 main {
   margin-top: 0.5rem;
 }
 
-/* ...restul CSS-ului tău rămâne la fel */
 .year-section {
   margin-top: 2rem;
 }
 
 .year-title {
   margin-bottom: 0.75rem;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   border-bottom: 1px solid #374151;
   padding-bottom: 0.25rem;
+  text-align: center;
+  color: #bdbac0;
 }
 
 .cards-grid {
@@ -61,7 +64,6 @@ main {
   flex-wrap: wrap;
   gap: 1.5rem;
   justify-content: flex-start;
-  /* rândurile nu sunt centrate, doar containerul */
 }
 
 .poem-card {
@@ -74,14 +76,10 @@ main {
   transition: transform 0.15s ease, box-shadow 0.15s ease,
     border-color 0.15s ease;
   color: inherit;
-
-  width: 280px;
-  flex: 0 0 280px;
+  flex: 0 0 260px;
 }
 
-/* restul (hover, modal etc.) rămân identice */
-
-
+/* … restul (hover, modal, poem-text) rămân exact cum le ai */
 
 .poem-card:hover {
   transform: translateY(-2px);
@@ -92,6 +90,7 @@ main {
 .poem-card h3 {
   margin: 0 0 0.4rem;
   font-size: 1rem;
+  color: #a69caf;
 }
 
 .poem-card .poem-date {

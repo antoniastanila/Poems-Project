@@ -1,18 +1,14 @@
 // src/App.jsx
 import "./App.css";
-import poems from "./poems"; // poemsByYear era de fapt o listă de poezii
+import poems from "./poems";
 import { useState } from "react";
 
-// Grupăm poeziile pe ani într-un obiect: { 2025: [...], 2024: [...] }
 const poemsByYear = poems.reduce((acc, poem) => {
-  if (!acc[poem.year]) {
-    acc[poem.year] = [];
-  }
+  if (!acc[poem.year]) acc[poem.year] = [];
   acc[poem.year].push(poem);
   return acc;
 }, {});
 
-// Lista de ani, ordonați descrescător
 const years = Object.keys(poemsByYear)
   .map(Number)
   .sort((a, b) => b - a);
@@ -22,9 +18,10 @@ function App() {
 
   return (
     <div className="app">
+      {/* 🔹 TOATĂ pagina e în app-inner */}
       <div className="app-inner">
         <header className="app-header">
-          <h1>my little poetry archive</h1>
+          <h1>Anto's little poetry archive</h1>
           <p>Newest poems on top · scroll down for older years ✨</p>
         </header>
 
@@ -49,6 +46,7 @@ function App() {
         </main>
       </div>
 
+      {/* Modalul îl lăsăm separat ca să poată acoperi toată fereastra */}
       {selectedPoem && (
         <div
           className="modal-backdrop"
@@ -66,7 +64,6 @@ function App() {
             </button>
             <h2>{selectedPoem.title}</h2>
             <p className="modal-date">{selectedPoem.date}</p>
-            {/* aici trebuie folosit `content`, nu `text` */}
             <pre className="poem-text">{selectedPoem.content}</pre>
           </div>
         </div>
